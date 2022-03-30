@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Bowler List";
+}
+
+@model List<Bowler>
+
+<h1>Bowlers</h1>
+
+<h1>@ViewBag.Team</h1>
+
+<table class="table table-bordered table-striped">
+
+
+    <thead class="font-weight-bold">
+        <tr>
+            <td>First Name</td>
+            <td>Middle Init</td>
+            <td>Last Name</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip</td>
+            <td>Phone Number</td>
+            @*<td>Team Name</td>*@
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.BowlerFirstName</td>
+                <td>@x.BowlerMiddleInit</td>
+                <td>@x.BowlerLastName</td>
+                <td>@x.BowlerAddress</td>
+                <td>@x.BowlerCity</td>
+                <td>@x.BowlerState</td>
+                <td>@x.BowlerZip</td>
+                <td>@x.BowlerPhoneNumber</td>
+                @*<td>@x.TeamName</td>*@
+
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@x.BowlerID">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@x.BowlerID">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
